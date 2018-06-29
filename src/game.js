@@ -10,6 +10,9 @@
     this._array = [0, 0, 0,
                    0, 0, 0,
                    0, 0, 0];
+    this._winSet = [[0, 1, 2], [3, 4, 5], [6, 7, 8],
+                    [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                    [0, 4, 8], [2, 4, 6]];
   };
 
   Game.prototype = {
@@ -28,8 +31,20 @@
       } else {
         this._currentPlayer = this._p1;
       };
-    }
+    },
 
+    checkWinner: function(){
+      for (var i = 0; i < 8 ; i++) {
+        var set = this._winSet[i];
+        var result = 0;
+        for(var n = 0; n < 3; n++) {
+          result += this._array[set[n]];
+          if ( Math.abs(result) === 3 ) {
+            return this._currentPlayer.sym + ' WIN!';
+          }
+        }
+      }
+    }
 
   }
 
