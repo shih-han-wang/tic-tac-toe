@@ -28,19 +28,19 @@ describe('Game', function() {
 
   describe('players', function() {
     it('return p1 sym', function() {
-       expect(game.p1.sym).toEqual('O');
+       expect(game._p1.sym).toEqual('O');
     });
 
     it('return p1 value', function() {
-       expect(game.p1.val).toEqual(1);
+       expect(game._p1.val).toEqual(1);
     });
 
     it('return p2 sym', function() {
-       expect(game.p2.sym).toEqual('X');
+       expect(game._p2.sym).toEqual('X');
     });
 
     it('return p2 value', function() {
-       expect(game.p2.val).toEqual(-1);
+       expect(game._p2.val).toEqual(-1);
     });
   });
 
