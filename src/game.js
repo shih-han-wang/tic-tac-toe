@@ -15,9 +15,11 @@
   Game.prototype = {
 
     action: function(index){
-      this._turn();
-      this._array[index] = this._currentPlayer.val;
-      this._count++;
+      if (this._array[index] === 0) {
+        this._turn();
+        this._array[index] = this._currentPlayer.val;
+        this._count++;
+      };
     },
 
     _turn: function(){
