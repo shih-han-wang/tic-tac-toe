@@ -20,7 +20,9 @@ describe('Game', function() {
 
   describe('initial array', function() {
      it('return array with values 0', function() {
-       expect(game._array).toEqual([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+       expect(game._array).toEqual([0, 0, 0,
+                                    0, 0, 0,
+                                    0, 0, 0]);
     });
   });
 
@@ -39,6 +41,15 @@ describe('Game', function() {
 
     it('return p2 value', function() {
        expect(game.p2.val).toEqual(-1);
+    });
+  });
+
+  describe('action', function() {
+    it('change the array with val at given index', function() {
+      game.action(4)
+      expect(game._array).toEqual([0, 0, 0,
+                                    0, 1, 0,
+                                    0, 0, 0]);
     });
   });
 
