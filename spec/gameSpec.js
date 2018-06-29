@@ -51,6 +51,15 @@ describe('Game', function() {
                                     0, 1, 0,
                                     0, 0, 0]);
     });
+
+  });
+
+  describe('_turn', function() {
+    it('change the currentPlayer', function() {
+      game._count = 2;
+      game._turn();
+      expect(game._currentPlayer).toBe(game._p2);
+    });
   });
 
 
