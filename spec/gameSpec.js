@@ -52,6 +52,19 @@ describe('Game', function() {
                                     0, 0, 0]);
     });
 
+    it('count plus one', function() {
+      game.action(4)
+      expect(game._count).toEqual(2);
+    });
+
+    it('second action change player', function() {
+      game.action(4)
+      game.action(6)
+      expect(game._array).toEqual([0, 0, 0,
+                                    0, 1, 0,
+                                    -1, 0, 0]);
+    });
+
   });
 
   describe('_turn', function() {
