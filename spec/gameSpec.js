@@ -3,14 +3,42 @@
 describe('Game', function() {
 
   var game;
+  var player1;
+  var player2;
 
   beforeEach( function() {
-    game = new Game();
+    player1 = {
+      sym: 'O',
+      val: 1
+    };
+    player2 = {
+      sym: 'X',
+      val: -1
+    }
+    game = new Game(player1, player2);
   })
 
   describe('initial array', function() {
      it('return array with values 0', function() {
        expect(game._array).toEqual([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    });
+  });
+
+  describe('players', function() {
+    it('return p1 sym', function() {
+       expect(game.p1.sym).toEqual('O');
+    });
+
+    it('return p1 value', function() {
+       expect(game.p1.val).toEqual(1);
+    });
+
+    it('return p2 sym', function() {
+       expect(game.p2.sym).toEqual('X');
+    });
+
+    it('return p2 value', function() {
+       expect(game.p2.val).toEqual(-1);
     });
   });
 
