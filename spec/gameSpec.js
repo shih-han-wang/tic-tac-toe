@@ -18,11 +18,15 @@ describe('Game', function() {
     game = new Game(player1, player2);
   })
 
-  describe('initial array', function() {
-     it('return array with values 0', function() {
+  describe('initial', function() {
+    it('return array with values 0', function() {
        expect(game._array).toEqual([0, 0, 0,
                                     0, 0, 0,
                                     0, 0, 0]);
+    });
+
+    it('return winset', function() {
+       expect(game._winSet).toEqual([[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]);
     });
   });
 
@@ -81,6 +85,27 @@ describe('Game', function() {
       game._count = 2;
       game._turn();
       expect(game._currentPlayer).toBe(game._p2);
+    });
+  });
+
+  describe('checkwinner', function() {
+    it('return the winner - first test', function() {
+      game.action(0);
+      game.action(3);
+      game.action(1);
+      game.action(4);
+      game.action(2);
+      expect(game.checkWinner()).toEqual('O WIN!');
+    });
+
+    it('return the winner - second test', function() {
+      game.action(1);
+      game.action(4);
+      game.action(0);
+      game.action(2);
+      game.action(3);
+      game.action(6);
+      expect(game.checkWinner()).toEqual('X WIN!');
     });
   });
 
