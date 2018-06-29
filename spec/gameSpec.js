@@ -65,6 +65,15 @@ describe('Game', function() {
                                     -1, 0, 0]);
     });
 
+    it('same index only can be chosen once', function() {
+      game.action(3)
+      game.action(3)
+      expect(game._count).toEqual(2);
+      expect(game._array).toEqual([0, 0, 0,
+                                    1, 0, 0,
+                                    0, 0, 0]);
+    });
+
   });
 
   describe('_turn', function() {
