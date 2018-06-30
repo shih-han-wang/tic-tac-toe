@@ -5,6 +5,7 @@
 h1 {
   text-align: center;
   margin: 3em 0;
+  font-size: 2.2em;
 }
 
 /* tic tad toe board */
@@ -34,7 +35,43 @@ td {
 
 #reset {
   position: fixed;
-  top: 80%;
+  top: 60em;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+/* winner message */
+
+.winner {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.winner-content {
+  background-color: rgba(235, 235, 235, 0.98);
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid rgb(136, 136, 136);
+  width: 50em;
+  height: 20em;
+  text-align: center;
+}
+
+#winnerMessage {
+  padding: 4%;
+  padding-bottom: 0;
+  font-size: 5em;
+}
+
+#again {
+  border-radius: 5px 5px;
+  font-size: 1em;
 }
