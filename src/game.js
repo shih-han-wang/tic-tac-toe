@@ -52,6 +52,14 @@
         count: this._count,
         board: this._board
       };
+    },
+
+    reset: function(){
+      this._count = 1;
+      this._currentPlayer = this._p1;
+      this._board = [0, 0, 0,
+                     0, 0, 0,
+                     0, 0, 0];
     }
 
   };

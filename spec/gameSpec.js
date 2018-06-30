@@ -117,4 +117,18 @@ describe('Game', function() {
     });
   });
 
+  describe('reset', function() {
+    it('reset everything', function() {
+      game.action(0);
+      game.action(3);
+      game.action(2);
+      game.reset()
+      expect(game.get().board).toEqual([0, 0, 0,
+                                        0, 0, 0,
+                                        0, 0, 0]);
+      expect(game.get().player).toEqual(game._p1);
+      expect(game.get().count).toEqual(1);
+    });
+  });
+
 });
