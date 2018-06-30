@@ -1,0 +1,40 @@
+* {
+  font-family: Arial;
+}
+
+h1 {
+  text-align: center;
+  margin: 3em 0;
+}
+
+/* tic tad toe board */
+
+table {
+  margin: 5px auto;
+}
+
+td {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  font-size: 40px;
+}
+
+.RL {
+  border-right: 5px solid black;
+  border-left: 5px solid black;
+}
+
+.TB {
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+}
+
+/* buttons */
+
+#reset {
+  position: fixed;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
