@@ -18,11 +18,19 @@ describe('Game', function() {
     game = new Game(player1, player2);
   })
 
-  describe('initial', function() {
-    it('return array with values 0', function() {
-       expect(game._array).toEqual([0, 0, 0,
+  describe('get', function() {
+    it('return board with values 0', function() {
+       expect(game.get().board).toEqual([0, 0, 0,
                                     0, 0, 0,
                                     0, 0, 0]);
+    });
+
+    it('return current player', function() {
+       expect(game.get().player).toEqual(game._p1);
+    });
+
+    it('return count', function() {
+       expect(game.get().count).toEqual(1);
     });
 
     it('return winset', function() {
@@ -51,7 +59,7 @@ describe('Game', function() {
   describe('action', function() {
     it('change the array with val at given index', function() {
       game.action(4)
-      expect(game._array).toEqual([0, 0, 0,
+      expect(game._board).toEqual([0, 0, 0,
                                     0, 1, 0,
                                     0, 0, 0]);
     });
@@ -64,7 +72,7 @@ describe('Game', function() {
     it('second action change player', function() {
       game.action(4)
       game.action(6)
-      expect(game._array).toEqual([0, 0, 0,
+      expect(game._board).toEqual([0, 0, 0,
                                     0, 1, 0,
                                     -1, 0, 0]);
     });
@@ -73,7 +81,7 @@ describe('Game', function() {
       game.action(3)
       game.action(3)
       expect(game._count).toEqual(2);
-      expect(game._array).toEqual([0, 0, 0,
+      expect(game._board).toEqual([0, 0, 0,
                                     1, 0, 0,
                                     0, 0, 0]);
     });
@@ -108,6 +116,5 @@ describe('Game', function() {
       expect(game.checkWinner()).toEqual('X WIN!');
     });
   });
-
 
 });
