@@ -18,7 +18,7 @@
 
   function AIMove(board, winset){
 
-    var setsHash = {};
+    var sets = {};
 
     for (var i = 0; i < 8 ; i++) {
       var set = winset[i];
@@ -26,34 +26,37 @@
       for(var n = 0; n < 3; n++) {
         sum += board[set[n]];
       }
-      setsHash[set] = sum;
-    }
+      sets[set] = sum;
+    };
 
-    var max = Object.keys(setsHash).reduce(function(a, b){ return setsHash[a] > setsHash[b] ? a : b }).split(',');
+    var maxSet = Object.keys(sets).reduce(function(a, b){
+                  return sets[a] > sets[b] ? a : b
+                 }).split(',');
 
-    var min = Object.keys(setsHash).reduce(function(a, b){ return setsHash[a] < setsHash[b] ? a : b }).split(',');
+    var minSet = Object.keys(sets).reduce(function(a, b){
+                  return sets[a] < sets[b] ? a : b
+                 }).split(',');
 
     var minSum = 0;
 
     for(var i = 0; i < 3; i++){
-      minSum += board[min[i]]
+      minSum += board[minSet[i]]
     }
 
     if (minSum === -2){
       for(var i = 0; i < 3; i++){
-        if( board[min[i]] === 0){
-          return min[i];
+        if( board[minSet[i]] === 0){
+          return minSet[i];
         };
       };
     }else{
       for(var i = 0; i < 3; i++){
-        if( board[max[i]] === 0){
-          return max[i];
+        if( board[maxSet[i]] === 0){
+          return maxSet[i];
         };
       };
     };
   }
 
   exports.AIMove = AIMove;
-
 })(this);

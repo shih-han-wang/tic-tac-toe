@@ -36,7 +36,7 @@ describe('AI', function() {
        expect(AIFirstMove(initBoard)).toEqual(4);
     });
 
-    it('return 0 or 2 or 6 or 8 when board index 4 not 0', function() {
+    it('return 0 or 8 when board index 4 not 0', function() {
       var move = AIFirstMove(returnRandomBoard);
       var possibleMove = [0, 8];
        expect(possibleMove.indexOf(move) !== -1 ).toBe(true);

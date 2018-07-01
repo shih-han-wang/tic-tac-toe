@@ -18,7 +18,7 @@ $(document).ready(function(){
       };
 
       if (game.get().count >= 5){
-        checkWinnerReturnMessage();
+        checkWinnerReturnMessage(300);
       };
 
       if( game.get().count === 10  && game.checkWinner() === undefined ){
@@ -60,7 +60,7 @@ $(document).ready(function(){
       };
 
       if (game.get().count >= 5){
-        checkWinnerReturnMessage();
+        checkWinnerReturnMessage(600);
       };
 
       if( game.get().count === 10  && game.checkWinner() === undefined ){
@@ -85,12 +85,12 @@ $(document).ready(function(){
     location.reload();
   });
 
-  function checkWinnerReturnMessage(){
+  function checkWinnerReturnMessage(timeout){
     if ( game.checkWinner() != undefined ){
       setTimeout(function(){
         winnerMessageBoard();
         $("#winnerMessage").text(game.checkWinner());
-      }, 200);
+      }, timeout);
     };
   };
 
