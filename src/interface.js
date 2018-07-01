@@ -15,17 +15,17 @@ $(document).ready(function(){
       if( game.action($(this).attr("id")) ){
         $(this).text(game.get().player.sym);
         $(this).css({'background-color' : color });
-      };
+      }
 
       if (game.get().count >= 5){
         checkWinnerReturnMessage(300);
-      };
+      }
 
       if( game.get().count === 10  && game.checkWinner() === undefined ){
         setTimeout(function(){
           tieMessage();
         }, 200);
-      };
+      }
 
     });
 
@@ -48,7 +48,7 @@ $(document).ready(function(){
           var ai = AIFirstMove(game.get().board);
         }else{
           var ai = AIMove(game.get().board, game.get().winSet);
-        };
+        }
 
         game.action(ai);
 
@@ -57,17 +57,17 @@ $(document).ready(function(){
           $(`#${ai}`).css({'background-color' : '#b3e4d4' });
         }, 300);
 
-      };
+      }
 
       if (game.get().count >= 5){
         checkWinnerReturnMessage(600);
-      };
+      }
 
       if( game.get().count === 10  && game.checkWinner() === undefined ){
         setTimeout(function(){
           tieMessage();
         }, 200);
-      };
+      }
 
     });
 
@@ -91,19 +91,19 @@ $(document).ready(function(){
         winnerMessageBoard();
         $("#winnerMessage").text(game.checkWinner());
       }, timeout);
-    };
-  };
+    }
+  }
 
   function tieMessage(){
     winnerMessageBoard();
     $("#winnerMessage").text("It's a tie!");
-  };
+  }
 
   function winnerMessageBoard(){
     $(".winner").css({'display' : 'block'});
     $("#TwoPMode").css({'display' : 'none'});
     $("#AIMode").css({'display' : 'none'});
     $("#again").css({'display' : 'inline'});
-  };
+  }
 
 });

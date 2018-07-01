@@ -14,7 +14,7 @@
                     [0, 3, 6],  [2, 5, 8],
                     [3, 4, 5], [1, 4, 7],
                     [0, 4, 8], [2, 4, 6]];
-  };
+  }
 
   Game.prototype = {
 
@@ -32,7 +32,7 @@
         this._currentPlayer = this._p2;
       } else {
         this._currentPlayer = this._p1;
-      };
+      }
     },
 
     checkWinner: function(){
