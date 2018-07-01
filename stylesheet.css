@@ -43,7 +43,7 @@ td {
 /* winner message */
 
 .winner {
-  display: none;
+  display: block;
   position: fixed;
   z-index: 1;
   padding-top: 100px;
@@ -71,7 +71,13 @@ td {
   font-size: 5em;
 }
 
+#AIMode #TwoPMode {
+  border-radius: 5px 5px;
+  font-size: 1em;
+}
+
 #again {
+  display: none;
   border-radius: 5px 5px;
   font-size: 1em;
 }

@@ -1,20 +1,54 @@
 $(document).ready(function(){
 
-  var game = new Game();
+  game = new Game();
 
-  $(".cell").click(function(){
+  // 2 players mode
 
-    game.action($(this).attr("id"));
-    $(this).text(game.get().player.sym)
+  $("#TwoPMode").click(function(){
 
-    if (game.get().count >= 5){
-      if ( game.checkWinner() != undefined ){
-        setTimeout(function(){
-          $(".winner").css({'display' : 'block'});
-          $("#winnerMessage").text(game.checkWinner());
-        }, 200);
+    $(".winner").css({'display' : 'none'});
+
+    $(".cell").click(function(){
+
+      game.action($(this).attr("id"));
+      $(this).text(game.get().player.sym)
+
+      if (game.get().count >= 5){
+        checkWinnerReturnMessage()
       };
-    };
+
+    });
+
+  });
+
+  // player vs computer mode
+
+  $("#AIMode").click(function(){
+
+    $(".winner").css({'display' : 'none'});
+
+    $(".cell").click(function(){
+
+      game.action($(this).attr("id"));
+      $(this).text(game.get().player.sym);
+
+      if(game.get().count === 2){
+        var ai = AIFirstMove(game.get().board)
+      }else{
+        var ai = AIMove(game.get().board, game.get().winSet)
+      }
+
+      game.action(ai);
+
+      setTimeout(function(){
+        $(`#${ai}`).text(game.get().player.sym);
+      }, 300);
+
+      if (game.get().count >= 5){
+        checkWinnerReturnMessage()
+      };
+
+    });
 
   });
 
@@ -23,13 +57,28 @@ $(document).ready(function(){
   });
 
   $("#again").click(function(){
-    resetGameAndDisplay()
-    $(".winner").css({'display' : 'none'});
+    location.reload();
   });
 
   function resetGameAndDisplay(){
     game.reset();
     $(".cell").text('')
-  }
+  };
+
+  function checkWinnerReturnMessage(){
+    if ( game.checkWinner() != undefined ){
+      setTimeout(function(){
+        winnerMessageBoard();
+        $("#winnerMessage").text(game.checkWinner());
+      }, 200);
+    };
+  };
+
+  function winnerMessageBoard(){
+    $(".winner").css({'display' : 'block'});
+    $("#TwoPMode").css({'display' : 'none'});
+    $("#AIMode").css({'display' : 'none'});
+    $("#again").css({'display' : 'inline'});
+  };
 
 });

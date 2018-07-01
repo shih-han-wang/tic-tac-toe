@@ -6,7 +6,7 @@
     if(board[4] === 0){
       return 4;
     }else{
-      var move = [0, 2, 6, 8]
+      var move = [0, 8]
       return move[Math.floor(Math.random()*move.length)];
     }
   }

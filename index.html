@@ -5,6 +5,7 @@
     <title>tic-tac-toe</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="src/player.js"></script>
+    <script src="src/AIMove.js"></script>
     <script src="src/game.js"></script>
     <script src="src/interface.js"></script>
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -31,8 +32,10 @@
 
     <div class="winner" >
       <div class="winner-content">
-        <p id="winnerMessage"></p>
-        <button id="again" >START AGAIN</button>
+        <p id="winnerMessage">Choose Mode</p>
+        <button id="TwoPMode" >2 PLAYERS</button>
+        <button id="AIMode" >VS. AI</button>
+        <button id="again" >Start Again</button>
       </div>
     </div>
 
