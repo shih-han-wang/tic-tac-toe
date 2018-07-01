@@ -10,11 +10,21 @@ $(document).ready(function(){
 
     $(".cell").click(function(){
 
-      game.action($(this).attr("id"));
-      $(this).text(game.get().player.sym)
+      var color = game.get().count % 2 === 1 ? '#b3c3e4' : '#b3e4d4';
+
+      if( game.action($(this).attr("id")) ){
+        $(this).text(game.get().player.sym);
+        $(this).css({'background-color' : color });
+      };
 
       if (game.get().count >= 5){
-        checkWinnerReturnMessage()
+        checkWinnerReturnMessage();
+      };
+
+      if( game.get().count === 10  && game.checkWinner() === undefined ){
+        setTimeout(function(){
+          tieMessage();
+        }, 200);
       };
 
     });
@@ -72,6 +82,11 @@ $(document).ready(function(){
         $("#winnerMessage").text(game.checkWinner());
       }, 200);
     };
+  };
+
+  function tieMessage(){
+    winnerMessageBoard();
+    $("#winnerMessage").text("It's a tie!");
   };
 
   function winnerMessageBoard(){
