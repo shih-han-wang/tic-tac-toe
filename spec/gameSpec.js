@@ -103,7 +103,7 @@ describe('Game', function() {
       game.action(1);
       game.action(4);
       game.action(2);
-      expect(game.checkWinner()).toEqual('O WIN!');
+      expect(game.checkWinner()).toEqual('O WINS!');
     });
 
     it('return the winner - second test', function() {
@@ -113,7 +113,7 @@ describe('Game', function() {
       game.action(2);
       game.action(3);
       game.action(6);
-      expect(game.checkWinner()).toEqual('X WIN!');
+      expect(game.checkWinner()).toEqual('X WINS!');
     });
   });
 

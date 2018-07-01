@@ -41,7 +41,7 @@
         for(var n = 0; n < 3; n++) {
           result += this._board[set[n]];
           if ( Math.abs(result) === 3 ) {
-            return this._currentPlayer.sym + ' WIN!';
+            return this._currentPlayer.sym + ' WINS!';
           }
         }
       }
