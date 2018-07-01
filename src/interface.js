@@ -39,41 +39,51 @@ $(document).ready(function(){
 
     $(".cell").click(function(){
 
-      game.action($(this).attr("id"));
-      $(this).text(game.get().player.sym);
+      if( game.action($(this).attr("id")) ){
 
-      if(game.get().count === 2){
-        var ai = AIFirstMove(game.get().board)
-      }else{
-        var ai = AIMove(game.get().board, game.get().winSet)
-      }
+        $(this).text(game.get().player.sym);
+        $(this).css({'background-color' : '#b3c3e4' });
 
-      game.action(ai);
+        if( game.get().count === 2 ){
+          var ai = AIFirstMove(game.get().board);
+        }else{
+          var ai = AIMove(game.get().board, game.get().winSet);
+        };
 
-      setTimeout(function(){
-        $(`#${ai}`).text(game.get().player.sym);
-      }, 300);
+        game.action(ai);
+
+        setTimeout(function(){
+          $(`#${ai}`).text(game.get().player.sym);
+          $(`#${ai}`).css({'background-color' : '#b3e4d4' });
+        }, 300);
+
+      };
 
       if (game.get().count >= 5){
-        checkWinnerReturnMessage()
+        checkWinnerReturnMessage();
+      };
+
+      if( game.get().count === 10  && game.checkWinner() === undefined ){
+        setTimeout(function(){
+          tieMessage();
+        }, 200);
       };
 
     });
 
   });
 
+  // shared buttons & functions for two modes
+
   $("#reset").click(function(){
-    resetGameAndDisplay()
+    game.reset();
+    $(".cell").text('');
+    $(".cell").css({'background-color' : '' });
   });
 
   $("#again").click(function(){
     location.reload();
   });
-
-  function resetGameAndDisplay(){
-    game.reset();
-    $(".cell").text('')
-  };
 
   function checkWinnerReturnMessage(){
     if ( game.checkWinner() != undefined ){

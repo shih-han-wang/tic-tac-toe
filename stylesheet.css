@@ -1,5 +1,6 @@
 * {
-  font-family: Arial;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #63666a;
 }
 
 h1 {
@@ -12,6 +13,7 @@ h1 {
 
 table {
   margin: 5px auto;
+  border-collapse: collapse;
 }
 
 td {
@@ -22,22 +24,33 @@ td {
 }
 
 .RL {
-  border-right: 5px solid black;
-  border-left: 5px solid black;
+  border-right: 5px solid #63666a;
+  border-left: 5px solid #63666a;
 }
 
 .TB {
-  border-top: 5px solid black;
-  border-bottom: 5px solid black;
+  border-top: 5px solid #63666a;
+  border-bottom: 5px solid #63666a;
 }
 
 /* buttons */
 
 #reset {
   position: fixed;
-  top: 60em;
+  top: 40em;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+#AIMode, #TwoPMode, #reset {
+  border-radius: 5px 5px;
+  font-size: 1em;
+}
+
+#again {
+  display: none;
+  border-radius: 5px 5px;
+  font-size: 1em;
 }
 
 /* winner message */
@@ -69,15 +82,4 @@ td {
   padding: 4%;
   padding-bottom: 0;
   font-size: 5em;
-}
-
-#AIMode #TwoPMode {
-  border-radius: 5px 5px;
-  font-size: 1em;
-}
-
-#again {
-  display: none;
-  border-radius: 5px 5px;
-  font-size: 1em;
 }

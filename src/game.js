@@ -23,7 +23,8 @@
         this._turn();
         this._board[index] = this._currentPlayer.val;
         this._count++;
-      };
+        return true;
+      }
     },
 
     _turn: function(){
